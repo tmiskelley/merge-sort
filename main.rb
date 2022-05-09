@@ -10,7 +10,19 @@ def merge_sort(array)
 
   merge_sort(left_half)
   merge_sort(right_half)
-end
+  binding.pry
+  until left_half.empty? || right_half.empty?
+    # organizes elements into ascending order
+    if left_half.max > right_half.max
+      array.delete(left_half.max)
+      array.unshift(left_half.max)
+      left_half.delete(left_half.max)
+    else
+      array.delete(right_half.max)
+      array.unshift(right_half.max)
+      left_half.delete(right_half.max)
+    end
+  end
 
-my_array = [7, 4, 5, 6, 3, 1, 2]
+my_array = [7, 5, 4, 6, 3, 1, 2]
 p merge_sort(my_array)
