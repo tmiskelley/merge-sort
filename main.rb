@@ -20,7 +20,7 @@ def merge_sort(array)
     else
       array.delete(right_half.max)
       array.unshift(right_half.max)
-      left_half.delete(right_half.max)
+      right_half.delete(right_half.max)
     end
   end
 
