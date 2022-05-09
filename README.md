@@ -1,1 +1,2 @@
-# merge-sort
+# Merge Sort
+This repository is my implementation of the merge sort algorithm with Ruby, and demonstrates my understanding of the concept of recursion. Given an array of unsorted numbers, this algorithm utilizes recursive function calls to break down the original array into many smaller arrays, and reassemble them back into one large sorted array. The "modify" function is implemented to avoid code repetition and improve the projects readability.
