@@ -15,27 +15,25 @@ def merge_sort(array)
     # organizes elements into ascending order
     if left_half.empty?
       until right_half.empty?
-        array.delete(right_half.min)
-        array.push(right_half.min)
-        right_half.delete(right_half.min)
+        modify(array, right_half)
       end
     elsif right_half.empty?
       until left_half.empty?
-        array.delete(left_half.min)
-        array.push(left_half.min)
-        left_half.delete(left_half.min)
+        modify(array, left_half)
       end
     elsif left_half.min < right_half.min
-      array.delete(left_half.min)
-      array.push(left_half.min)
-      left_half.delete(left_half.min)
+      modify(array, left_half)
     else
-      array.delete(right_half.min)
-      array.push(right_half.min)
-      right_half.delete(right_half.min)
+      modify(array, right_half)
     end
   end
   array
+end
+
+def modify(array, half)
+  array.delete(half.min)
+  array.push(half.min)
+  half.delete(half.min)
 end
 
 my_array = [7, 5, 4, 6, 3, 1, 2]
