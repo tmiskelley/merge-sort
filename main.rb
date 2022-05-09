@@ -11,16 +11,28 @@ def merge_sort(array)
   merge_sort(left_half)
   merge_sort(right_half)
 
-  until left_half.empty? || right_half.empty?
+  until left_half.empty? && right_half.empty?
     # organizes elements into ascending order
-    if left_half.max < right_half.max
-      array.delete(left_half.max)
-      array.unshift(left_half.max)
-      left_half.delete(left_half.max)
+    if left_half.empty?
+      until right_half.empty?
+        array.delete(right_half.min)
+        array.push(right_half.min)
+        right_half.delete(right_half.min)
+      end
+    elsif right_half.empty?
+      until left_half.empty?
+        array.delete(left_half.min)
+        array.push(left_half.min)
+        left_half.delete(left_half.min)
+      end
+    elsif left_half.min < right_half.min
+      array.delete(left_half.min)
+      array.push(left_half.min)
+      left_half.delete(left_half.min)
     else
-      array.delete(right_half.max)
-      array.unshift(right_half.max)
-      right_half.delete(right_half.max)
+      array.delete(right_half.min)
+      array.push(right_half.min)
+      right_half.delete(right_half.min)
     end
   end
   array
