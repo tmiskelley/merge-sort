@@ -1,7 +1,5 @@
 # Frozen_string_literal: true
 
-require 'pry'
-
 def merge_sort(array)
   return array if array.length <= 1
 
